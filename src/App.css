@@ -17,6 +17,11 @@
   text-decoration: line-through;
 }
 
+.todo-done-editing {
+  width: 200px;
+  margin-left: 10px;
+}
+
 .action {
   border-radius: 50%;
   cursor: pointer;

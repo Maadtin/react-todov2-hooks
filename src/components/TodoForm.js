@@ -11,16 +11,16 @@ function TodoForm({onTodoSubmit, history}) {
         onTodoSubmit({name, done, isEditing: false});
         setName('');
         setDone(false);
-        history.push('/');
+        history.push('/todos/all');
     };
 
     return (
         <form className="col-12 col-md-8 mx-auto" onSubmit={onSubmit}>
-            <NavLink to="/">
+            <NavLink to="/todos/all">
                 <button className="btn btn-primary mb-2">Ver tareas creadas</button>
             </NavLink>
             <div className="form-group">
-                <input value={name} onChange={e => setName(e.target.value)} placeholder="Nombre de la tarea" type="text" className="form-control"/>
+                <input autoFocus value={name} onChange={e => setName(e.target.value)} placeholder="Nombre de la tarea" type="text" className="form-control"/>
             </div>
             <div className="form-group">
                 <div className="custom-control custom-checkbox">

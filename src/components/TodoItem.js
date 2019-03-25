@@ -3,9 +3,10 @@ import React from 'react';
 function TodoItem({todo, index, onTodoDelete, onTodoUpdate, toggleIsEditing}) {
 
     let inputRef = React.createRef();
+    let checkBoxRef = React.createRef();
 
     const handleUpdate = () => {
-        onTodoUpdate(index, inputRef.current.value);
+        onTodoUpdate(index, inputRef.current.value, checkBoxRef.current.checked);
     };
 
     let todoItem = todo.isEditing
@@ -17,6 +18,14 @@ function TodoItem({todo, index, onTodoDelete, onTodoUpdate, toggleIsEditing}) {
                 <span className="btn btn-success btn-sm text-white fa fa-check action action-cancel-editing"
                       onClick={handleUpdate}/>
             </div>
+
+            <div className="todo-done-editing custom-control custom-checkbox">
+                <input defaultChecked={todo.done} ref={checkBoxRef} type="checkbox" className="custom-control-input" id="customCheck1"/>
+                <label className="custom-control-label" htmlFor="customCheck1">
+                    Tarea terminada
+                </label>
+            </div>
+
         </li>
         : <li className="list-group-item todo-container">
             <span className={todo.done ? 'todo-done' : ''}>{todo.name}</span>
